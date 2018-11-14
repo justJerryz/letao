@@ -4,9 +4,81 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Document</title> 
+  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
+  <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+  <link rel="stylesheet" href="./css/common.css">
 </head>
 <body>
-  haha
+  <!-- 左侧菜单 -->
+  <div class="lt-aside">
+    <!-- 标题 -->
+    <div class="brand"><a href="#">黑马29</a></div>
+    <!-- 头像 -->
+    <div class="user">
+      <img src="./images/default.png" alt="">
+      <p>超级管理员</p>
+    </div>
+    <!-- 导航 -->
+    <div class="nav">
+      <ul>
+        <li><a href="#"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+        <li>
+          <a href="#" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
+          <div class="child" style="display: none;">
+            <a href="#">一级分类</a>
+            <a href="#">二级分类</a>
+          </div>
+        </li>
+        <li><a href="#"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
+      </ul>
+    </div> 
+  </div>
+  <!-- 右侧主页面 -->
+  <div class="lt-main">
+    <!-- 头部 -->
+    <div class="lt-topbar">
+      <a href="#" class="pull-left menu-left">
+        <i class="glyphicon glyphicon-align-justify"></i>
+      </a>
+      <a href="#" class="pull-right ltb-mode">
+        <i class="glyphicon glyphicon-log-out"></i>
+      </a>
+    </div>
+    <!-- 内容 -->
+    <div class="container">
+      <div class="ltm-tab">
+        <a href="#">管理系统</a><span> / 首页</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模态框 -->
+  <div class="modal fade" id="myModal" tabindex="-1" >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" ><span >&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <script src="./lib/jquery/jquery.js"></script>
+  <script src="./lib/bootstrap/js/bootstrap.js"></script>
+  <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+  <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/login.js"></script>
 </body>
 </html>
