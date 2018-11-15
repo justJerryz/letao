@@ -2,9 +2,7 @@ html,body{
   width: 100%;
   height: 100%;
 }
-body{
-  background: #222D32;
-}
+
 ul{
   list-style: none;
 }
@@ -14,6 +12,15 @@ a:hover,
 a:active{
   text-decoration: none;
 }
+/* 用户表格 */
+.table.table-bordered th,
+.table.table-bordered td
+{
+  text-align: center;
+  vertical-align: middle;
+  
+}
+
 .box{
   margin-top: 150px;
 }
@@ -22,6 +29,7 @@ a:active{
   line-height: 40px;
   text-align: center;
 }
+/* 左侧菜单栏 */
 .lt-aside{
   width: 180px;
   height: 100%;
@@ -29,6 +37,7 @@ a:active{
   position: fixed;
   left: 0;
   top: 0;
+  background: #222D32;
   z-index: 999;
   transition: all 1s;
 }
@@ -61,10 +70,13 @@ a:active{
   padding-left: 0px;
 }
 .lt-aside .nav li a{
+  display: block;
+  width: 100%;
   height: 40px;
   line-height: 40px;
   text-align: center;
   color: #fff;
+  border-left: 3px solid transparent;
 }
 .lt-aside .nav li a i{
   padding-right: 5px;
@@ -72,17 +84,28 @@ a:active{
 .lt-aside .nav .child a{
   display: block;
 }
+/* 高亮 */
+.lt-aside .nav .active{
+  background: #1D1F21;
+  border-left: 3px solid #006699;
+}
 /* 右侧主页面 */
 .lt-main{
   height: 1000px;
   width: 100%;
   padding-left: 180px;
-  position: relative;
+  padding-top: 50px;
   transition: all 1s;
 }
 .lt-topbar{
   height: 50px;
   background: #3C8DBC;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 180px;
+  transition: all 1s;
 }
 .lt-topbar a{
   width: 50px;
@@ -97,11 +120,14 @@ a:active{
 .lt-aside.current{
   left: -180px;
 }
+.lt-main .lt-topbar.current
+{
+  padding-left: 0;
+}
 .lt-main.current{
   padding-left: 0;
 }
-
-/* 内容 */
+/* 面包屑导航条 */
 .lt-main .container{
   background: #fff;
   height: 100%;
@@ -113,3 +139,17 @@ a:active{
   margin-top: 20px;
   padding: 8px 16px;
 }
+.lt-main .mt_20{
+  margin-top: 20px;
+}
+/* 统计图 */
+.echarts-left,.echarts-right{
+  width: 48%;
+  height: 400px;
+}
+
+/* 模态框 */
+.modal .modal-body p{
+  color: #A94442;
+}
+
