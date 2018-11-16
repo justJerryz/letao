@@ -39,7 +39,7 @@ $(function(){
       type: 'get',
       dataType: 'json',
       success:function(info){
-        console.log(info);
+        // console.log(info);
         if (info.success) {
           location.href='login.html';
         }
