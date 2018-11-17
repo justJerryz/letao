@@ -1,12 +1,11 @@
-
-
-$(function () {
+$(function(){
   var currentPage = 1;
   var pageSize = 5;
 
   render();
 
-  function render() {
+  // 表格渲染
+  function render(){
     $.ajax({
       url: '/category/querySecondCategoryPaging',
       data: {
@@ -14,28 +13,32 @@ $(function () {
         pageSize: pageSize
       },
       dataType: 'json',
-      success: function (info) {
-        $('tbody').html(template('secondTmp', info));
-
-        $('#paginator').bootstrapPaginator({
-          bootstrapMajorVersion: 3, // 版本号
+      success: function(info){
+        console.log(info);
+        $('tbody').html(template('secondTmp',info));
+        $('#pagintor').bootstrapPaginator({
+          // 版本号
+          bootstrapMajorVersion: 3,
+          // 总页数
           totalPages: Math.ceil(info.total / info.size),
+          // 当前页
           currentPage: info.page,
-          onPageClicked: function (a, b, c, page) {
+          // 给按钮添加点击事件
+          onPageClicked: function( a, b, c, page ) {
             // 更新当前页
             currentPage = page;
             // 重新渲染
             render();
           }
         })
-
       }
     })
   }
 
-  // 显示模态框
-  $('#addBtn').click(function () {
+  // 模态框显示
+  $('#addBtn').click(function(){
     $('#addModal').modal('show');
+    
     $.ajax({
       url: '/category/querySecondCategoryPaging',
       data: {
@@ -43,45 +46,38 @@ $(function () {
         pageSize: 100
       },
       dataType: 'json',
-      success: function (info) {
-        $('.dropdown-menu').html(template('listTmp', info));
+      success: function(info){
+        console.log(info);
+        $('.dropdown-menu').html(template('dropdownTmp',info));
       }
     })
   });
 
-  // 下拉菜单点击事件
-  $('.dropdown').on('click', 'a', function () {
-    var txt = $(this).text();
-    $('#dropdownText').text(txt);
-
-    var id = $(this).data('id');
-    $('[name="categoryId]"').val(id);
-
-    // $('[name="categoryId"]').trigger('input');
+  // 下拉菜单点击
+  $('.dropdown').on('click','a',function(){
+    $('.dropdowntext').text($(this).text());
+    $('[name="categoryId]"').val($(this).data('id'));
+    // 更新当前字段的状态
     $('#form').data("bootstrapValidator").updateStatus("categoryId", "VALID");
-
   });
 
   // 文件上传初始化
   $("#fileupload").fileupload({
-    dataType: "json",
+    dataType:"json",
     //e：事件对象
     //data：图片上传后的对象，通过data.result.picAddr可以获取上传后的图片地址
-    done: function (e, data) {
+    done:function (e, data) {
       console.log(data);
-      var result = data.result;
-      var picUrl = result.picAddr;
-      // console.log(picUrl);
-      
-      $('#imgbox img').attr('src', picUrl);
+      var picUrl = data.result.picAddr;
+      console.log(picUrl);
+      $('.img img').attr('src',picUrl);
       $('[name="brandLogo"]').val(picUrl);
-      // $('[name="brandLogo"]').trigger('input');
       $('#form').data("bootstrapValidator").updateStatus("brandLogo", "VALID");
     }
-  });
+});
 
-  // 表单校验
-  $('#form').bootstrapValidator({
+
+ $('#form').bootstrapValidator({
 
     // 对隐藏域进行校验
     excluded: [],

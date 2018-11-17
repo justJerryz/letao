@@ -1,5 +1,3 @@
-
-
 $(function(){
   var currentPage = 1;
   var pageSize = 5;
@@ -8,22 +6,21 @@ $(function(){
 
   function render(){
     $.ajax({
-      type: 'get',
       url: '/category/queryTopCategoryPaging',
-      data:{
+      data: {
         page: currentPage,
         pageSize: pageSize
       },
       dataType: 'json',
       success: function(info){
-        console.log(info);        
+        console.log(info);
+        
         $('tbody').html(template('firstTmp',info));
-
         $('#pagintor').bootstrapPaginator({
           // 版本号
           bootstrapMajorVersion: 3,
           // 总页数
-          totalPages: Math.ceil( info.total / info.size ),
+          totalPages: Math.ceil(info.total / info.size),
           // 当前页
           currentPage: info.page,
           // 给按钮添加点击事件
@@ -38,12 +35,12 @@ $(function(){
     })
   }
 
-  // 显示模态框
+  // 添加分类-显示模态框
   $('#addBtn').click(function(){
     $('#addModal').modal('show');
   });
 
-  // 表单校验
+  // 添加分类-表单校验
   $('#form').bootstrapValidator({
     feedbackIcons: {
       valid: 'glyphicon glyphicon-ok',
@@ -62,28 +59,25 @@ $(function(){
     } 
   });
 
-  // 提交表单
-  $("#form").on('success.form.bv', function (e) {
+  // 添加分类-提交表单
+  // 阻止浏览器的默认跳转行为
+  $('#form').on('success.form.bv',function(e){
     e.preventDefault();
-    
+
     $.ajax({
       url: '/category/addTopCategory',
       type: 'post',
       data: $('#form').serialize(),
       dataType: 'json',
       success: function(info){
-        console.log(info);
-        if(info.success){
-          $('#addModal').modal('hide');
+        // console.log(info);
+        if (info.success) {
+          currentPage = 1;
           render();
-          currentPage: 1;
-          
-          //重置所有样式,包括input中的文本
+          $('#addModal').modal('hide');
           $("#form").data('bootstrapValidator').resetForm(true); 
-
         }
       }
     })
-
-  });
+  })
 })

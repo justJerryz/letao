@@ -44,7 +44,7 @@
           </div>
         </li>
         <li>
-          <a href="product.html">
+          <a href="product.html" class="active">
             <i class="glyphicon glyphicon-tags"></i>
             <span>商品管理</span>
           </a>
@@ -71,50 +71,44 @@
         <li>
           <a href="#">管理系统</a>
         </li>
-        <li>首页</li>
+        <li>商品管理</li>
       </ol>
 
-      <!-- 统计图 -->
-      <!-- 这个插件里有很多div,所以不能用后代选择器直接选中两个div,而是用并集选择器 -->
-      <div class="lt-content">
-        <div class="echarts-left pull-left"></div>
-        <div class="echarts-right pull-right"></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- 模态框 -->
-  <div class="modal fade " id="myModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content modal-sm">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-          <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
-        </div>
-        <div class="modal-body">
-          <p>
-            <i class="glyphicon glyphicon-info-sign"></i>
-            <span>您确定要退出后台管理系统吗？</span>
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-          <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+    </div>
+
+    <!-- 模态框 -->
+    <div class="modal fade " id="myModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content modal-sm">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              <i class="glyphicon glyphicon-info-sign"></i>
+              <span>您确定要退出后台管理系统吗？</span>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="./lib/jquery/jquery.js"></script>
-  <script src="./lib/bootstrap/js/bootstrap.js"></script>
-  <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
-  <script src="./lib/nprogress/nprogress.js"></script>
-  <script src="./lib/echarts/echarts.min.js"></script>
-  <script src="./js/common.js"></script>
-  <script src="./js/isLogin.js"></script>
-  <script src="./js/index.js"></script>
+    <script src="./lib/jquery/jquery.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <script src="./lib/echarts/echarts.min.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/isLogin.js"></script>
+
 </body>
 
 </html>

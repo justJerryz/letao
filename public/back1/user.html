@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
+  <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+
+  <link rel="stylesheet" href="./css/common.css">
+</head>
+
+<body>
+  <!-- 左侧菜单 -->
+  <div class="lt-aside">
+    <div class="brand">
+      <a href="#">黑马29期</a>
+    </div>
+    <!-- 头像 -->
+    <div class="user">
+      <img src="./images/default.png" alt="">
+      <p>超级管理员</p>
+    </div>
+    <!-- 导航 -->
+    <div class="nav">
+      <ul>
+        <li>
+          <a href="user.html" class="active">
+            <i class="glyphicon glyphicon-user"></i>
+            <span>用户管理</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="category">
+            <i class="glyphicon glyphicon-list"></i>
+            <span>分类管理</span>
+          </a>
+          <div class="child" style="display: none;">
+            <a href="first.html">一级分类</a>
+            <a href="second.html">二级分类</a>
+          </div>
+        </li>
+        <li>
+          <a href="product.html">
+            <i class="glyphicon glyphicon-tags"></i>
+            <span>商品管理</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 右侧主体 -->
+  <div class="lt-main">
+    <!-- 头部 -->
+    <div class="lt-topbar">
+      <a href="#" class="pull-left menu-left">
+        <i class="glyphicon glyphicon-align-justify"></i>
+      </a>
+      <a href="#" class="pull-right ltb-mode">
+        <i class="glyphicon glyphicon-log-out"></i>
+      </a>
+    </div>
+
+    <!-- 内容 -->
+    <div class="container-fluid">
+      <ol class="breadcrumb mt_20">
+        <li>
+          <a href="#">管理系统</a>
+        </li>
+        <li>用户管理</li>
+      </ol>
+
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>用户名</th>
+            <th>手机号</th>
+            <th>状态</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 我留的第二个坑,应该没有第三个了 -->
+        </tbody>
+      </table>
+
+      <div class="pull-right">
+        <ul id="pagintor"></ul>
+      </div>
+
+
+    </div>
+
+    <!-- 模态框 -->
+    <div class="modal fade " id="myModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content modal-sm">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              <i class="glyphicon glyphicon-info-sign"></i>
+              <span>您确定要退出后台管理系统吗？</span>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 修改按钮模态框 -->
+    <div class="modal fade " id="btnModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content modal-sm">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              <i class="glyphicon glyphicon-info-sign"></i>
+              <span>你确定要执行此操作吗?</span>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary" id="confirmBtn">确定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 模板引擎 -->
+    <script type="text/html" id="userTmp">
+    {{each rows v i}}
+      <tr>
+        <td>{{i+1+ (page - 1) * size}}</td>
+        <td>{{v.username}}</td>
+        <td>{{v.mobile}}</td>
+        <td>{{v.isDelete===1? "正常" : "已禁用"}}</td>
+        <td data-id="{{v.id}}">
+
+          {{if v.isDelete === 1}}
+          <button class="btn btn-danger">禁用</button>
+          {{else}}
+          <button class="btn btn-success">启用</button>
+          {{/if}}
+        </td>
+      </tr>
+    {{/each}}
+  </script>
+
+    <script src="./lib/jquery/jquery.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/isLogin.js"></script>
+    <script src="./js/user.js"></script>
+
+</body>
+
+</html>
