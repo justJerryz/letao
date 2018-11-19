@@ -40,7 +40,7 @@ $(function(){
     $('#addModal').modal('show');
     
     $.ajax({
-      url: '/category/querySecondCategoryPaging',
+      url: '/category/queryTopCategoryPaging',
       data: {
         page: 1,
         pageSize: 100
@@ -116,4 +116,25 @@ $(function(){
     }
   })
 
+});
+
+$('#form').on('form.success.bv',function(e){
+  e.preventDefault();
+
+  $.ajax({
+    url: '/category/addTopCategory',
+    data: $('#form').serialize(),
+    type: 'post',
+    dataType: 'json',
+    success: function(info){
+      if(info.success){
+        currentPage = 1;
+        render();
+        $('#addModal').modal('hide');
+        $("#form").data('bootstrapValidator').resetForm(true);
+        $('.dropdowntext').text('请选择一级分类');
+        $('.img img').attr('src','./images/none.png');
+      }
+    }
+  })
 })

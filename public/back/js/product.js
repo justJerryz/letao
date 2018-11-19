@@ -70,7 +70,8 @@ $(function(){
       var picObj = data.result;
       //图片地址
       var picUrl = picObj.picAddr;
-
+      console.log(picObj);
+      
       picArr.unshift(picObj);
            
       $('#imgbox').prepend('<img src="'+ picUrl +'" style="height: 100px" alt="">');
@@ -164,7 +165,7 @@ $(function(){
             message: '请上传三张图片'
           }        
         }
-      },
+      }
     }
   
   });
@@ -191,9 +192,10 @@ $(function(){
           render();
           $('#addModal').modal('hide');
 
-          $('#dropdownText').text('请选择二级分类');
-          $('#imgbox img').remove();
-
+          $("#form").data('bootstrapValidator').resetForm(true);
+          $('#dropdowntext').text('请选择二级分类');
+          $('.img img').remove();
+          
           picArr = [];
         }
       }

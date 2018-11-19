@@ -139,8 +139,8 @@ $(function () {
           $('#addModal').modal('hide');
 
           $("#form").data('bootstrapValidator').resetForm(true);
-          $('#dropdownText').text('请选择一级分类');
-          $('#imgbox img').attr('src','./images/none.png');
+          $('#dropdowntext').text('请选择一级分类');
+          $('.img img').attr('src','./images/none.png');
         }
       }
     })
