@@ -37,20 +37,22 @@ $(function () {
   $('#addBtn').click(function () {
     $('#addModal').modal('show');
     $.ajax({
-      url: '/category/querySecondCategoryPaging',
+      url: '/category/queryTopCategoryPaging',
       data: {
         page: 1,
         pageSize: 100
       },
       dataType: 'json',
       success: function (info) {
+        console.log(info);
+        
         $('.dropdown-menu').html(template('listTmp', info));
       }
     })
   });
 
   // 下拉菜单点击事件
-  $('.dropdown').on('click', 'a', function () {
+  $('.dropdown-menu').on('click', 'a', function () {
     var txt = $(this).text();
     $('#dropdownText').text(txt);
 
@@ -118,6 +120,30 @@ $(function () {
         }
       }
     }
+  });
+
+  // 提交表单
+  $('#form').on('success.form.bv',function(e){
+    e.preventDefault();
+
+    $.ajax({
+      url: '/category/addSecondCategory',
+      type: 'post',
+      data: $('#form').serialize(),
+      dataType: 'json',
+      success: function(info){
+        console.log(info);
+        if (info.success) {
+          currentPage = 1;
+          render();
+          $('#addModal').modal('hide');
+
+          $("#form").data('bootstrapValidator').resetForm(true);
+          $('#dropdownText').text('请选择一级分类');
+          $('#imgbox img').attr('src','./images/none.png');
+        }
+      }
+    })
   })
 
 })

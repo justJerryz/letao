@@ -1,0 +1,49 @@
+html,body{
+  width: 100%;
+  height: 100%;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  max-width: 640px;
+  min-width: 320px;
+  background: pink;
+  position: relative;
+  margin: 0 auto;
+}
+.lt-head{
+  width: 100%;
+  height: 45px;
+  background: #006699;
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: 640px;
+  min-width: 320px;
+  padding-left: 45px;
+  padding-right: 45px;
+  text-align: center;
+  color: #fff;
+}
+.lt-head .lth-left,
+.lt-head .lth-right{
+  position: absolute;
+  top: 0;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  line-height: 45px;
+  font-size: 18px;
+  color: #fff;
+}
+.lt-head .lth-left{
+  left: 0;
+}
+.lt-head .lth-right{
+  right: 0;
+}
+.lt-head h4{
+  height: 45px;
+  margin: 0;
+  line-height: 45px;
+}
