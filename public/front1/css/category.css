@@ -1,0 +1,35 @@
+.category-left{
+  width: 90px;
+  height: 100%;
+  float: left;
+  position: relative;
+  text-align: center;
+}
+.category-left li a{
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  color: #666;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.category-left li a.current{
+  border-right: none;
+  background: #fff;
+}
+.category-right{
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  background: #fff;
+}
+.category-right a{
+  float: left;
+  text-align: center;
+  width: 33.3%;
+}
+.category-right a img{
+  width: 70px;
+  height: 50px;
+  margin: 0 auto;
+}

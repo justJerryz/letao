@@ -21,8 +21,27 @@
       obj[key] = keyname;
     })
     console.log(obj);
-    
-    
+
+
+    var obj = {};
+    var str = location.search;
+    console.log(str);
+    // 解析中文
+    str = decodeURI(str);
+    console.log(str);
+    // 去掉前面的问号 使用slice(头,尾) 含头,不含尾
+    str = str.slice(1);
+    console.log(str);
+    // 切割成数组   使用split(切割符)
+    str = str.split('&');
+    console.log(str);
+    // 遍历数组,将其存入到一个空对象中
+    str.forEach(function(v,i){
+      var objName = v.split('=')[0];
+      var objKey = v.split('=')[1];
+      obj[objName] = objKey;
+    })
+    console.log(obj);
     
       
   </script>

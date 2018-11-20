@@ -51,10 +51,11 @@ $(function(){
 
     var arr = getHistory();
 
+    // indexOf()返回的下标
     var index = arr.indexOf(key);
-    console.log(index);
+    // console.log(index);
     
-    if( index === 1){
+    if( index != -1){
       arr.splice(index,1);
     }
 
