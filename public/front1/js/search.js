@@ -60,7 +60,10 @@ $(function(){
 
     localStorage.setItem('search_list',JSON.stringify(arr));
     render();
+    
     $('.search-input').val('');
     location.href = "searchList.html?key=" + info;
-  })
+
+  });
+
 })

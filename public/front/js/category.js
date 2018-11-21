@@ -7,7 +7,7 @@ $(function(){
     success: function(info){
       console.log(info);
       $('.lt_category_left ul').html(template('leftSearch',info));
-      renderId(info.rows[0].id)
+      renderId(info.rows[0].id);
     }
   });
 

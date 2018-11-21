@@ -1,0 +1,36 @@
+.lt-left{
+  float: left;
+  width: 90px;
+  position: relative;
+  height: 100%;
+}
+.lt-left li a{
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  display: block;
+  width: 100%;
+}
+/* 高亮 */
+.lt-left li a.current{
+  background: #fff;
+  border-right: none;
+}
+.lt-right{
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.lt-right li{
+  width: 33.3%;
+  text-align: center;
+  float: left;
+}
+.lt-right li img{
+  width: 70px;
+  height: 50px;
+  margin: 0 auto;
+  display: block;
+}
